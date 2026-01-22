@@ -23,3 +23,8 @@ All config is in: `src/config/config.js`
 ## Browser support
 -  Chrome **121+**
 -  Safari **17+**
+
+
+## Download Release:
+
+Download from the **[Releases Page](https://github.com/ausanli/text-to-video-adcash/releases)**.
