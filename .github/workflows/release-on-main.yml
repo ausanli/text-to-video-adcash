@@ -1,0 +1,64 @@
+name: Build & Release JS (main)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write 
+
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm i
+
+      - name: Build (prod)
+        run: npm run build:prod
+
+      - name: Verify build output exists
+        run: |
+          ls -la dist || true
+          test -f dist/text-to-movie.js || (echo "Missing dist/text-to-movie.js" && exit 1)
+
+      # Workflow artifact (Actions run)
+      - name: Upload workflow artifact (JS file)
+        uses: actions/upload-artifact@v4
+        with:
+          name: text-to-movie-js
+          path: dist/text-to-movie.js
+          if-no-files-found: error
+
+      - name: Compute release tag
+        id: tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TAG="v${VERSION}-build.${GITHUB_RUN_NUMBER}"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      # GitHub Release asset (download link will appear in the Release UI)
+      - name: Create release + upload JS asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.tag }}
+          generate_release_notes: true
+          files: dist/text-to-movie.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
