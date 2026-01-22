@@ -1,0 +1,29 @@
+{
+  "name": "text-to-video-adcash",
+  "version": "1.0.0",
+  "description": "Capture visible webpage text and play it sentence-by-sentence on a canvas with optional video recording.",
+  "main": "dist/text-to-movie.js",
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ausanli/text-to-video-adcash.git"
+  },
+  "author": "anna usanli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ausanli/text-to-video-adcash/issues"
+  },
+  "homepage": "https://github.com/ausanli/text-to-video-adcash#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-merge": "^6.0.1"
+  }
+}
