@@ -19,6 +19,8 @@ It runs automatically.
 ## Config
 All config is in: `src/config/config.js`
 
+For testing purposes the extracted sentences are set to the first 3 sentences.
+
 
 ## Browser support
 -  Chrome **121+**

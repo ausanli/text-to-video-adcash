@@ -6,7 +6,9 @@
   "scripts": {
     "build": "npm run build:prod",
     "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "build:prod": "webpack --config webpack.prod.js",
+    "lint:check": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,10 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.39.2",
     "babel-loader": "^9.2.1",
+    "eslint": "^8.56.0",
+    "globals": "^17.1.0",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
     "webpack-merge": "^6.0.1"

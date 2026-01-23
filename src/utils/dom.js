@@ -53,3 +53,5 @@ export const isElementVisible = (element) => {
     opacity !== "0"
   );
 };
+
+

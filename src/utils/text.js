@@ -2,7 +2,7 @@
  * Splits text into sentences on . ! ? boundaries.
  * Small chunks (<= minChunkLength) get merged into the previous sentence.
  */
-export function splitIntoSentences(text, minChunkLength = 4) {
+export const splitIntoSentences=(text, minChunkLength = 4)=> {
   const chunks = String(text || "")
     .trim()
     .split(/(?<=[.!?])\s+/)

@@ -28,6 +28,9 @@ export const config = {
     count: 3,
   },
 
+  /**
+     * CSS for canvas
+     */
   canvas: {
     width: 1280,
     height: 720,
@@ -37,6 +40,9 @@ export const config = {
     pageMargin: "50px",
   },
 
+   /**
+     * CSS for text inside the canvas
+     */
   animation: {
     font: "44px Arial",
     textColor: "#111",
@@ -50,9 +56,12 @@ export const config = {
     maxHoldMs: 5500,
   },
 
+  /**
+     * Configuration for recording of the canvas video
+     */
   recording: {
     enabled: true,
-    filename: "page-sentences.webm",
+    filename: "page-content-animation.webm",
     fps: 30,
     bitsPerSecond: 6_000_000,
     timesliceMs: 250,

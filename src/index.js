@@ -2,7 +2,7 @@ import { config } from "./config/config";
 import { extractVisibleSentences } from "./core/extractVisibleSentences";
 import { replacePageWithCanvas } from "./core/replacePageWithCanvas";
 import { animateSentencesOnCanvas } from "./core/animateSentencesOnCanvas";
-import { recordCanvasWithDownload } from "./core/recordCanvasWithDownload";
+import { playWithRecordVideo } from "./core/playWithRecordVideo";
 
 /**
  * Main runner.
@@ -17,7 +17,7 @@ export const run = () => {
   const canvas = replacePageWithCanvas(config.canvas);
   const play = animateSentencesOnCanvas(canvas, sentences, config.animation);
   if (config.recording.enabled) {
-    recordCanvasWithDownload(canvas, config.recording, play);
+    playWithRecordVideo(canvas, config.recording, play);
   } else {
     play();
   }

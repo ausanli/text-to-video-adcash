@@ -29,6 +29,9 @@ jobs:
       - name: Install deps
         run: npm i
 
+      - name: Lint (check)
+        run: npm run lint:check
+
       - name: Build (prod)
         run: npm run build:prod
 

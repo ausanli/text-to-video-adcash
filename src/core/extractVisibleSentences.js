@@ -2,7 +2,7 @@ import {
   normalizeWhitespace,
   isElementVisible,
   isInViewport,
-  isInIgnoredContainer
+  isInIgnoredContainer,
 } from "../utils/dom";
 import { splitIntoSentences } from "../utils/text";
 
@@ -10,13 +10,9 @@ import { splitIntoSentences } from "../utils/text";
  * Extract readable sentences from the page from visible text blocks.
  * Returns sentences in DOM order.
  */
-export function extractVisibleSentences(options) {
-  const {
-    viewportOnly,
-    textSelectors,
-    ignoreClosest,
-    minSentenceChunkLength
-  } = options;
+export const extractVisibleSentences = (options) => {
+  const { viewportOnly, textSelectors, ignoreClosest, minSentenceChunkLength } =
+    options;
 
   const pageRoot = document.body;
 
@@ -41,4 +37,4 @@ export function extractVisibleSentences(options) {
   }
 
   return collectedSentences;
-}
+};
